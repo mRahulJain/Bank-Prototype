@@ -40,22 +40,22 @@ There are two accounts registered to the bank database (by-default) -
 ```json
 [
 	{
-		accountNumber: "123456789",
-		accountHolderName: "Rahul Jain",
-		accountCIFNumber: "ICIN0001",
-		accountBranch: "NEW DELHI",
-		accountIsNetBankingReg: 0,
-		accountBalancePrimary: 1200.21,
-		accountBalanceSavings: 5500.88
+		"accountNumber": "123456789",
+		"accountHolderName": "Rahul Jain",
+		"accountCIFNumber": "ICIN0001",
+		"accountBranch": "NEW DELHI",
+		"accountIsNetBankingReg": 0,
+		"accountBalancePrimary": 1200.21,
+		"accountBalanceSavings": 5500.88
 	},
 	{
-		accountNumber: "987654321",
-		accountHolderName: "Akshat Bisht",
-		accountCIFNumber: "ICIN0002",
-		accountBranch: "Ghaziabad",
-		accountIsNetBankingReg: 0,
-		accountBalancePrimary: 2100.1,
-		accountBalanceSavings: 9600.76
+		"accountNumber": "987654321",
+		"accountHolderName": "Akshat Bisht",
+		"accountCIFNumber": "ICIN0002",
+		"accountBranch": "Ghaziabad",
+		"accountIsNetBankingReg": 0,
+		"accountBalancePrimary": 2100.1,
+		"accountBalanceSavings": 9600.76
 	}
 ]
 ```
