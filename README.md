@@ -37,7 +37,7 @@ The whole application is containerized using <b>Docker</b> and its <b>Compose Fi
 
 
 There are two accounts registered to the bank database (by-default) -
-
+```json
 [
 	{
 		accountNumber: "123456789",
@@ -58,5 +58,5 @@ There are two accounts registered to the bank database (by-default) -
 		accountBalanceSavings: 9600.76
 	}
 ]
-
+```
 Use these two accounts to play around with the application. 🤝
