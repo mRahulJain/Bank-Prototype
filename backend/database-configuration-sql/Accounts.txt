@@ -1,0 +1,16 @@
+create table Accounts (
+ACCOUNT_NUMBER varchar(16) primary key,
+ACCOUNT_HOLDER_NAME varchar(255) not null,
+ACCOUNT_CIF_NUMBER varchar(11) not null unique,
+ACCOUNT_BRANCH varchar(255) not null,
+ACCOUNT_BALANCE_PRIMARY  decimal(10,2) not null,
+ACCOUNT_BALANCE_SAVINGS  decimal(10,2) not null,
+ACCOUNT_IS_NET_BANKING_REG int(1) not null
+);
+insert into Accounts values ('123456789', 'Rahul Jain', 'ICIN002', 'NORTH DELHI', 1762.88, 4000.00, 0);
+insert into Accounts values ('123321456', 'Ashish Jain', 'ICIN003', 'SOUTH DELHI', 17888.00, 10000.98, 0);
+insert into Accounts values ('123456765', 'Akshat Bisht', 'ICIN004', 'MUMBAI', 6000.05, 2000.88, 0);
+
+select * from Accounts;
+
+drop table Accounts;

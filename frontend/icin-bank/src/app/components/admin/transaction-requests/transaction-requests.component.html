@@ -1,0 +1,37 @@
+<div class="myContainer">
+    <div class="row mb-4">
+        <span class="col ml-4 btn btn-danger text-center" (click)="onBack()">Back</span>
+        <span class="col-8 text-center font-weight-bold">Transaction Requests</span>
+        <span class="col mr-4 btn btn-warning text-center" (click)="onRefresh()">Refersh List</span>
+    </div>
+    <div class="col-md-12 col-lg-12 ml-auto">
+        <table class="table">
+            <tr class="table-active">
+                <th scope="col" class="border-right">#</th>
+                <th scope="col">Transfer To Account Number</th>
+                <th scope="col">Transfer To Account Type</th>
+                <th scope="col">Transfer From Account Number</th>
+                <th scope="col">Transfer From Account Type</th>
+                <th scope="col">Transfer Amount</th>
+                <th scope="col">Transfer Date</th>
+                <th scope="col">Operation</th>
+            </tr>
+            <tr *ngFor="let transaction of toShowTransactions">
+                <td scope="row" class="border-right">{{transaction['id']}}</td>
+                <td>{{transaction['toAccountNumber']}}</td>
+                <td>{{transaction['toAccountType']}}</td>
+                <td>{{transaction['fromAccountNumber']}}</td>
+                <td>{{transaction['fromAccountType']}}</td>
+                <td>{{transaction['transferAmount']}}</td>
+                <td>{{generateDate(transaction['transferDate'])}}</td>
+                <td>
+                    <button (click)="allow(transaction['id'])" class="bg-danger btn btn-danger">ALLOW</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-12 col-lg-12 float-right">
+        <button [disabled]="!allowBack" class="btn btn-primary mr-2" (click)="onPrev();">Prev</button>
+        <button [disabled]="!allowNext" class="btn btn-primary" (click)="onNext();">Next</button>
+    </div>
+</div>

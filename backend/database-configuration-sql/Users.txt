@@ -1,0 +1,7 @@
+create table Users (
+ACCOUNT_NUMBER varchar(16) primary key,
+ACCOUNT_HOLDER_NAME varchar(255) not null,
+ACCOUNT_LOGIN_USER_ID varchar(255) not null,
+ACCOUNT_LOGIN_PASSWORD varchar(11) not null,
+ACCOUNT_IS_BLOCKED decimal(1) not null
+);

@@ -1,0 +1,31 @@
+<div class="myContainer">
+    <div class="row mb-4">
+        <span class="col ml-4 btn btn-danger text-center" (click)="onBack()">Back</span>
+        <span class="col-8 text-center font-weight-bold">Cheque Book Requests</span>
+        <span class="col mr-4 btn btn-warning text-center" (click)="onRefresh()">Refersh List</span>
+    </div>
+    <div class="col-md-12 col-lg-12 ml-auto">
+        <table class="table">
+            <tr class="table-active">
+                <th scope="col" class="border-right">Cheque Book Number</th>
+                <th scope="col">Account Number</th>
+                <th scope="col">Account Type</th>
+                <th scope="col">Cheque Book Issue Date</th>
+                <th scope="col">Operation</th>
+            </tr>
+            <tr *ngFor="let chequeBook of toShowChequeBooks">
+                <td scope="row" class="border-right">{{chequeBook['chequeBookNumber']}}</td>
+                <td>{{chequeBook['accountNumber']}}</td>
+                <td>{{chequeBook['accountType']}}</td>
+                <td>{{generateDate(chequeBook['chequeBookIssueDate'])}}</td>
+                <td>
+                    <span class="btn btn-danger bg-danger text-center" (click)="allow(chequeBook['chequeBookNumber'])">ALLOW</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-12 col-lg-12 float-right">
+        <button [disabled]="!allowBack" class="btn btn-primary mr-2" (click)="onPrev();">Prev</button>
+        <button [disabled]="!allowNext" class="btn btn-primary" (click)="onNext();">Next</button>
+    </div>
+</div>

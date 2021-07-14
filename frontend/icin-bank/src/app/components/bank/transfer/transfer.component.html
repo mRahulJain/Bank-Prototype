@@ -1,0 +1,84 @@
+<div class="container pl-5">
+    <div class="row py-5 mt-2 align-items-center myDiv">
+        <div class="col-md-5 ml-5 pr-lg-5 mb-5 mb-md-0 text-center">
+            <img src="https://raw.githubusercontent.com/mRahulJain/TEKsystemsGS/dd8f954be7523fa05f8ff2e8a669a2c1c5be3807/Capstone/frontend/icin-bank/src/assets/svgTransfer.svg" alt="" class="img-fluid mb-3 d-none d-md-block">
+        </div>
+
+        <div class="col-md-7 col-lg-6 ml-auto">
+            <form action="#">
+                <div class="row">
+                    <div class="input-group col-lg-12 mb-3 text-center">
+                        <div class="form-check form-switch ml-4">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                                [checked]="isChecked" (change)="changed($event)">
+                            <label class="form-check-label" for="flexSwitchCheckChecked">
+                                Transfer to self
+                            </label>
+                        </div>
+                    </div>
+                    <div class="input-group col-lg-12 mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fas fa-id-card-alt text-muted"></i>
+                            </span>
+                        </div>
+                        <input [(ngModel)]="transferAccountNumber" id="transferAccountNumber" type="text"
+                            name="transferAccountNumber" placeholder="To Account Number"
+                            class="form-control bg-white border-left-0 border-md" required>
+                    </div>
+                    <div class="input-group col-lg-12 mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fas fa-money-check-alt text-muted"></i>
+                            </span>
+                        </div>
+                        <input [(ngModel)]="transferAccountType" id="transferAccountType" type="text"
+                            name="transferAccountType" placeholder="To Account Type (Primary/Savings)"
+                            class="form-control bg-white border-left-0 border-md" required>
+                    </div>
+                    <small class="col-lg-12 mb-1 font-weight-bold">Choose your account type</small>
+                    <div class="input-group col-lg-12 mb-3 ml-1">
+                        <div class="form-check col-lg-6">
+                            <input (change)="selectSelfPrimary($event)" class="form-check-input" type="radio" name="selfAccountType" id="selfAccountType">
+                            <label class="form-check-label" for="selfAccountType">
+                                Primary <small>(Balance: ₹ {{primaryBalance}}/-)</small>
+                            </label>
+                        </div>
+                        <div class="form-check col-lg-6">
+                            <input (change)="selectSelfSavings($event)" class="form-check-input" type="radio" name="selfAccountType" id="selfAccountType">
+                            <label class="form-check-label" for="selfAccountType">
+                                Savings <small>(Balance: ₹ {{savingsBalance}}/-)</small>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="input-group col-lg-12 mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fas fa-rupee-sign text-muted"></i>
+                            </span>
+                        </div>
+                        <input [(ngModel)]="tranferAmount" id="tranferAmount" type="number" name="tranferAmount"
+                            placeholder="Enter Amount" class="form-control bg-white border-left-0 border-md"
+                            required>
+                    </div>
+                    <div class="input-group col-lg-12 mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fas fa-comment-dots text-muted"></i>
+                            </span>
+                        </div>
+                        <input [(ngModel)]="transferMessage" id="transferMessage" type="text" name="transferMessage"
+                            placeholder="Enter Message" class="form-control bg-white border-left-0 border-md"
+                            required>
+                    </div>
+
+                    <div class="input-group col-lg-12 mb-4">
+                        <a class="btn btn-success btn-block py-2" (click)="transferMoney()">
+                            <span class="font-weight-bold text-white">Transfer Money</span>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

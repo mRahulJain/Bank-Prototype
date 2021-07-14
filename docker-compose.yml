@@ -1,0 +1,40 @@
+version: "3.7"
+services:
+  mysql-server:
+    image: mrahuljain/icin-bank:0.0.1.MYSQL
+    ports:
+      - "3306:3306"
+    networks:
+      - spring-boot-mysql-network-backend
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=icin_bank
+      - MYSQL_USERNAME=root
+      - mYSQL_PASSWORD=root
+  spring-boot-mysql:
+    image: mrahuljain/icin-bank:0.0.1.SPRINGBOOT
+    ports:
+      - "9090:9090"
+    networks:
+      - spring-boot-mysql-network-backend
+      - spring-boot-mysql-network-frontend
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-server:3306/icin_bank?useSSL=false&allowPublicKeyRetrieval=true
+    depends_on:
+      - mysql-server
+  angular-app:
+    image: mrahuljain/icin-bank:0.0.1.ANGULAR
+    ports:
+      - "4200:80"
+    networks:
+      - spring-boot-mysql-network-frontend
+    environment:
+      - apiUrl=http://spring-boot-mysql
+    depends_on:
+      - spring-boot-mysql
+networks:
+  spring-boot-mysql-network-backend:
+  spring-boot-mysql-network-frontend:
+  
+  

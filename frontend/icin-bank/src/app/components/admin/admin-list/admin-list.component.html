@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row py-5 mt-4 align-items-center myDiv">
+        <div class="col-md-5 pr-lg-5 mb-5 mb-md-0 text-center">
+            <img src="https://raw.githubusercontent.com/mRahulJain/TEKsystemsGS/dd8f954be7523fa05f8ff2e8a669a2c1c5be3807/Capstone/frontend/icin-bank/src/assets/svgSecure.svg" alt="" class="img-fluid mb-3 d-none d-md-block">
+            <p class="font-italic text-muted  display-5 font-weight-bold">ICINadmin
+            </p>
+        </div>
+
+        <div class="col-md-7 col-lg-6 ml-auto">
+            <form action="#">
+                <div class="row">
+                    <div class="col-lg-12 text-center mb-3">
+                        <h1 class="display-4">Select your choice</h1>
+                        <h6>----------------------------------------------------------------------------</h6>
+                    </div>
+                    
+                    <div class="form-group col-lg-12 mx-auto mb-0 mb-3">
+                        <a (click)="seeBlockedAccounts()" class="btn btn-primary btn-block py-2">
+                            <span class="font-weight-bold text-white">See Blocked Accounts</span>
+                        </a>
+                    </div>
+                    
+                    <div class="form-group col-lg-12 mx-auto mb-0 mb-3">
+                        <a (click)="seeChequeBooks()" class="btn btn-primary btn-block py-2">
+                            <span class="font-weight-bold text-white">See Cheque Book Requests</span>
+                        </a>
+                    </div>
+                    
+                    <div class="form-group col-lg-12 mx-auto mb-0mb-3">
+                        <a (click)="seeTransactions()" class="btn btn-primary btn-block py-2">
+                            <span class="font-weight-bold text-white">See Transaction Requests</span>
+                        </a>
+                    </div>
+
+                    <div class="form-group col-lg-12 mx-auto mb-0mb-3">
+                        <a (click)="onLogout()" class="btn btn-danger btn-block py-2">
+                            <span class="font-weight-bold text-white">Logout</span>
+                        </a>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

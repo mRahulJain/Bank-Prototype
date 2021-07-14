@@ -1,0 +1,29 @@
+<div class="myContainer">
+    <div class="row mb-4">
+        <span class="col ml-4 btn btn-danger text-center" (click)="onBack()">Back</span>
+        <span class="col-8 text-center font-weight-bold">Blocked Accounts</span>
+        <span class="col mr-4 btn btn-warning text-center" (click)="onRefresh()">Refersh List</span>
+    </div>
+    <div class="col-md-12 col-lg-12 ml-auto">
+        <table class="table">
+            <tr class="table-active">
+                <th scope="col" class="border-right">User #</th>
+                <th scope="col">Account Number</th>
+                <th scope="col">Account Holder Name</th>
+                <th scope="col">Operation</th>
+            </tr>
+            <tr *ngFor="let user of toShowUsers">
+                <td scope="row" class="border-right">{{user['accountLoginUserId']}}</td>
+                <td>{{user['accountNumber']}}</td>
+                <td>{{user['accountHolderName']}}</td>
+                <td>
+                    <button (click)="unblock(user['accountLoginUserId'])" class="bg-danger btn btn-danger">UNBLOCK</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-12 col-lg-12 float-right">
+        <button [disabled]="!allowBack" class="btn btn-primary mr-2" (click)="onPrev();">Prev</button>
+        <button [disabled]="!allowNext" class="btn btn-primary" (click)="onNext();">Next</button>
+    </div>
+</div>

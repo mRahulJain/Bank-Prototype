@@ -1,0 +1,42 @@
+<div class="myContainer">
+    <div class="row pt-3 align-items-center">
+        <div class="col-md-12 col-lg-12 mb-3">
+            <button class="btn btn-outline-dark" (click)="open(content)">Request Cheque Book</button>
+        </div>
+        <div class="col-md-12 col-lg-12 ml-auto">
+            <table class="table">
+                <tr class="table-active">
+                    <th scope="col" class="border-right">Cheque Book Number</th>
+                    <th scope="col">Account Number</th>
+                    <th scope="col">Account Type</th>
+                    <th scope="col">Cheque Book Issue Date</th>
+                    <th scope="col">Cheque Book Issue Status</th>
+                </tr>
+                <tr *ngFor="let chequeBook of toShowChequeBooks">
+                    <td scope="row" class="border-right">{{chequeBook['chequeBookNumber']}}</td>
+                    <td>{{chequeBook['accountNumber']}}</td>
+                    <td>{{chequeBook['accountType']}}</td>
+                    <td>{{generateDate(chequeBook['chequeBookIssueDate'])}}</td>
+                    <td>{{generateStatus(chequeBook['chequeBookStatus'])}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-12 col-lg-12 d-flex flex-row justify-content-end pr-5 pt-5">
+            <button [disabled]="!allowBack" class="btn btn-primary mr-2" (click)="onPrev();">Prev</button>
+            <button [disabled]="!allowNext" class="btn btn-primary" (click)="onNext();">Next</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">New Cheque Book Request</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <button type="button" class="btn btn-outline-dark col-12 mb-3" (click)="modal.close('Primary')">For Primary Account</button>
+        <button type="button" class="btn btn-outline-dark col-12" (click)="modal.close('Savings')">For Savings Account</button>
+    </div>
+</ng-template>

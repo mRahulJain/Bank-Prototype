@@ -1,0 +1,58 @@
+<div class="container myDiv">
+    <div class="row py-5 mt-4 align-items-center">
+        <div class="col-md-5 pr-lg-5 mb-5 mb-md-0 text-center">
+            <img src="https://raw.githubusercontent.com/mRahulJain/TEKsystemsGS/dd8f954be7523fa05f8ff2e8a669a2c1c5be3807/Capstone/frontend/icin-bank/src/assets/svgLogin.svg" alt="" class="img-fluid mb-3 d-none d-md-block">
+            <h1 class="display-3">ICIN Bank</h1>
+        </div>
+
+        <div class="col-md-7 col-lg-6 ml-auto">
+            <form action="#">
+                <div class="row">
+                    <div class="col-lg-12 text-center mb-3">
+                        <h1 class="display-4">Login</h1>
+                        <h6>------------------------</h6>
+                    </div>
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fas fa-id-card-alt text-muted"></i>
+                            </span>
+                        </div>
+                        <input [(ngModel)]="loginUserId" id="loginUserId" type="text" name="loginUserId" placeholder="User Login Id"
+                            class="form-control bg-white border-left-0 border-md" required>
+                    </div>
+
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-lock text-muted"></i>
+                            </span>
+                        </div>
+                        <input [(ngModel)]="loginUserPassword" id="loginUserPassword" type="password" name="loginUserPassword" placeholder="Login Password"
+                            class="form-control bg-white border-left-0 border-md" required>
+                    </div>
+
+                    <div class="form-group col-lg-12 mx-auto mb-0">
+                        <a (click)="loginUser()" class="btn btn-primary btn-block py-2">
+                            <span class="font-weight-bold text-white">Login</span>
+                        </a>
+                    </div>
+
+                    <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+                        <div class="border-bottom w-100 ml-5"></div>
+                        <span class="px-2 small text-muted font-weight-bold text-muted">OR</span>
+                        <div class="border-bottom w-100 mr-5"></div>
+                    </div>
+
+                    <div class="text-center w-100">
+                        <p class="text-muted font-weight-bold">Not Registered Yet For Net Banking? 
+                            <a routerLink="/register"
+                                class="text-primary ml-2">Register Here</a></p>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

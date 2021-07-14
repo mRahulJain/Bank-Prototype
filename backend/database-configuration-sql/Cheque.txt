@@ -1,0 +1,7 @@
+create table Cheque (
+CHEQUE_BOOK_NUMBER varchar(20) primary key,
+ACCOUNT_NUMBER varchar(16) not null,
+ACCOUNT_TYPE varchar(255) not null,
+CHEQUE_BOOK_ISSUE_DATE date not null,
+CHEQUE_BOOK_STATUS decimal(1) not null
+);

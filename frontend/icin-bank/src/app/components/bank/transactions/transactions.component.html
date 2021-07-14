@@ -1,0 +1,70 @@
+<div class="myContainer">
+    <div class="row pt-3 align-items-center">
+        <div class="col-md-12 col-lg-12 mb-3">
+            <button class="btn btn-outline-dark" (click)="open(content)"><i class="fas fa-filter"></i> Filter</button>
+        </div>
+        <div class="col-md-12 col-lg-12 ml-auto">
+            <table class="table">
+                <tr class="table-active">
+                    <th scope="col" class="border-right">Tran #</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Remarks</th>
+                    <th scope="col">Tran Amount (INR)</th>
+                    <th scope="col">Tran Status</th>
+                </tr>
+                <tr *ngFor="let transaction of toShowTransactions">
+                    <td scope="row" class="border-right">{{transaction['id']}}</td>
+                    <td>{{generateDate(transaction['transferDate'])}}</td>
+                    <td>{{generateRemarks(
+                        transaction['fromAccountNumber'],
+                        transaction['toAccountNumber'],
+                        transaction['fromAccountHolderName'],
+                        transaction['toAccountHolderName'],
+                        transaction['fromAccountType'],
+                        transaction['toAccountType'],
+                        transaction['transferMessage']
+                        )
+                        }}</td>
+                    <td class="{{amountColor}} font-weight-bold">₹ {{generateTransferAmount(
+                        transaction['transferAmount'],
+                        transaction['fromAccountNumber'],
+                        transaction['toAccountNumber']
+                        )}}</td>
+                    <td>{{generateStatus(transaction['transferStatus'])}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-12 col-lg-12 d-flex flex-row justify-content-end pr-5 pt-3">
+            <button [disabled]="!allowBack" class="btn btn-primary mr-2" (click)="onPrev();">Prev</button>
+            <button [disabled]="!allowNext" class="btn btn-primary" (click)="onNext();">Next</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Filter Transactions</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <label for="dateOfBirth">Start Date</label>
+                <div class="input-group">
+                    <input [(ngModel)]="startDate" id="startDate" type="date" class="form-control" placeholder="dd/mm/yyyy" name="startDate">
+                </div>
+                <br>
+                <label for="dateOfBirth">End Date</label>
+                <div class="input-group">
+                    <input [(ngModel)]="endDate" id="endDate" type="date" class="form-control" placeholder="dd/mm/yyyy" name="endDate">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Clear Filter')">Clear Filter</button>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Filter')">Filter</button>
+    </div>
+</ng-template>

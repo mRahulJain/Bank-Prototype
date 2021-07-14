@@ -1,0 +1,13 @@
+create table Transactions (
+ID int primary key,
+FROM_ACCOUNT_NUMBER varchar(16) not null,
+TO_ACCOUNT_NUMBER varchar(16) not null,
+FROM_ACCOUNT_HOLDER_NAME varchar(16) not null,
+TO_ACCOUNT_HOLDER_NAME varchar(16) not null,
+FROM_ACCOUNT_TYPE varchar(255) not null,
+TO_ACCOUNT_TYPE varchar(255) not null,
+TRANSFER_AMOUNT decimal(10,2) not null,
+TRANSFER_MESSAGE varchar(255) not null,
+TRANSFER_DATE date not null,
+TRANSFER_STATUS decimal(1) not null
+);

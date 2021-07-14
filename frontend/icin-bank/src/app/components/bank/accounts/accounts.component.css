@@ -1,0 +1,11 @@
+.myDiv {
+    height: 90vh;
+}
+.myHoverClass :hover {
+    background: #6c63ff;
+    color: white;
+}
+.myText {
+    font-size: 22px;
+    font-weight:600;
+}
